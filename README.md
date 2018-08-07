@@ -1,7 +1,7 @@
 # hadoop-monitoring
 Scripts for Hadoop monitoring
 
-### *"[hadoop_check.py](hadoop_check.py)"* script support next metrics:
+### *"[check_hadoop.py](check_hadoop.py)"* script support next metrics:
 - num_live_data_nodes<br>
 Number of live data nodes. Check will be triggered when value of this metric will be less than defined 'critical' threshold.
 
@@ -20,24 +20,24 @@ Check will be triggered if the datanode usage differs from average usage to more
 ### Examples of run
 Check number of live data nodes
 ```
-$ ./hadoop_check.py -n hbase-master01 -m num_live_data_nodes -c 7
+$ ./check_hadoop.py -n hbase-master01 -m num_live_data_nodes -c 7
 OK: Num Live Data Nodes: 7
 ```
 
 Check DFS usage in percent
 ```
-$ ./hadoop_check.py -n hbase-master01 -m dfs_used_percent -w 80 -c 90
+$ ./check_hadoop.py -n hbase-master01 -m dfs_used_percent -w 80 -c 90
 OK: DFS Used: 0.0%
 ```
 
 Check block pool usage in percent for each data node
 ```
-$ ./hadoop_check.py -n hbase-master01 -m block_pool_used_percent -w 80 -c 90
+$ ./check_hadoop.py -n hbase-master01 -m block_pool_used_percent -w 80 -c 90
 OK: hbase-region01=0.0%, hbase-region02=0.0%, hbase-region03=0.0%, hbase-region04=0.0%, hbase-region05=0.0%, hbase-region06=0.0%, hbase-region07=0.0%
 ```
 
 Check HDFS balancing
 ```
-./hadoop_check.py -n hbase-master01 -m hdfs_balancing -w 10 -c 15
+./check_hadoop.py -n hbase-master01 -m hdfs_balancing -w 10 -c 15
 OK: hbase-region01=0.0%, hbase-region02=0.0%, hbase-region03=-0.0%, hbase-region04=-0.0%, hbase-region05=-0.0%, hbase-region06=-0.0%, hbase-region07=0.0%
 ```
